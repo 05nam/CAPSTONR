@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bt capstone</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- !BSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="../assets/Css/style.css" />
+  </head>
+  <body>
+
+    <section>
+      <div class="container">
+        <div class="fill">
+          <h1>Danh Sách Sản Phẩm</h1>
+          <ul class="tab">
+            <li
+              id="iphone"
+              class="tab__item"
+              onclick="changeProductList('iphone',this)"
+            >
+              iphone
+            </li>
+            <li
+              id="sam"
+              class="tab__item"
+              onclick="changeProductList('Samsung',this)"
+            >
+              Samsung
+            </li>
+          </ul>
+        </div>
+          <div class="row" id="tblDanhSachSP"> </div>
+      </div>
+    </section>
+    
+
+    <section class="tab__cart">
+        <div class="tblSanPham" id="tblSanPham">
+          <h2>TABLE CART</h2>
+          <!-- BEGIN TABLE SẢN PHẨM -->
+          <table class="table table-bordered">
+            <thead>
+              <th>STT</th>
+              <th>Tên Sản Phẩm</th>
+              <th>Giá</th>
+              <th>SL</th>
+              <th>Hình Ảnh</th>
+              <th>Mô Tả</th>
+              <th>Action</th>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <!-- END TABLE SẢN PHẨM -->
+        </div>
+      </div>
+    </section>
+
+    <!-- !BSS  -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"
+    ></script>
+    <!-- !Axios  -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <!-- !JS  -->
+    <script src="../controllers/fill.js"></script>
+    <script src="../models/Product.js"></script>
+    <script src="../service/ProductService.js"></script>
+    <!-- ?main  -->
+    <script src="../controllers/main.js"></script>
+  </body>
+</html>
+
+<img class="img" src="" alt="" />
