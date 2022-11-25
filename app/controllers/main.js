@@ -4,20 +4,34 @@
 var spService = new SanPhamService();
 
 
+
 function layDanhSachSanPham() {
 
 
 spService.layDanhSachSP()
 .then(function(results){
     // console.log(results.data)
-
+    
+    
     //* hien thi len table 
     hienThiTable(results.data);
+
+    // const data = results.data;
+    // const arrIphone = []
+    // for(let i = 0; i < data.length; i ++) {
+    //   if (data[i].type.toLowerCase() === 'iphone') {
+    //     arrIphone.push(data[i])
+    //   }
+    // }
+    // console.log(arrIphone);
+
 })
 .catch(function(erro){
     console.log("erro")
 
 })}
+
+
 layDanhSachSanPham(); 
 
 
@@ -58,3 +72,52 @@ content += `  <div class="card  col-3  ">
  document.getElementById("tblDanhSachSP").innerHTML = content;
 }
 
+
+
+
+
+//** fillter
+
+function filterIP () {
+  
+  spService.layDanhSachSP()
+  .then(function(results){
+      const data = results.data;
+      const arrIphone = []
+      for(let i = 0; i < data.length; i ++) {
+        if (data[i].type.toLowerCase() === 'iphone') {
+          arrIphone.push(data[i])
+        }
+      }
+      
+      console.log(arrIphone)
+      hienThiTable(arrIphone)
+
+  })
+  .catch(function(error){
+    console.log("error")
+  })
+}
+document.getElementById("fill-ip").onclick= filterIP;
+
+
+function filterSSung () {
+spService.layDanhSachSP()
+.then(function(results){
+  const data2 = results.data;
+  const arrSamSung = [];
+  for(var i=0; i < data2.length; i++){
+    if(data2[i].type==='Samsung') {
+      arrSamSung.push(data2[i])
+    };
+    hienThiTable(arrSamSung)
+    
+  }
+
+})
+.catch(function(error){
+  console.log("error")
+})
+
+}
+document.getElementById("fill-ss").onclick= filterSSung ;

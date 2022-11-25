@@ -25,23 +25,24 @@
       <div class="container">
         <div class="fill">
           <h1>Danh Sách Sản Phẩm</h1>
-          <ul class="tab">
-            <li
-              id="iphone"
-              class="tab__item"
-              onclick="changeProductList('iphone',this)"
-            >
-              iphone
+          
+          <ul class="nav nav-pills">
+    
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Điện thoại</a>
+              <div class="dropdown-menu">
+                <a id="fill-ip" class="dropdown-item" href="#">Apple</a>
+                <a id="fill-ss" class="dropdown-item" href="#">Samsung</a>
+                </div>
             </li>
-            <li
-              id="sam"
-              class="tab__item"
-              onclick="changeProductList('Samsung',this)"
-            >
-              Samsung
-            </li>
+           
+            
           </ul>
+
+
+
         </div>
+
           <div class="row" id="tblDanhSachSP"> </div>
       </div>
     </section>
