@@ -57,11 +57,12 @@ content += `  <div class="card  col-3  ">
             </div>
             <div class="card__mid">
               <div class="card__title">${sp.name}</div>
-              <div class="card__price">$${sp.price}</div>
+              <div class="card__price">${sp.price}</div>
             </div>
             <div class="card__bot">
               <div class="card__action">
                 <button onclick='addCart (this)' >Add cart</button>
+                <input type="number" value="0">
               </div>
             </div>
     </div>
@@ -136,15 +137,53 @@ function addCart (X) {
   var boxsp = X.parentElement.parentElement.parentElement.children;
   var img = boxsp[2].children[0].src;
   var name = boxsp[3].children[0].innerText;
-  var price = boxsp[3].children[1].innerText
-  // console.log(boxsp[3])
+  var price = boxsp[3].children[1].innerText;
+  var amount = boxsp[4].children[0].children[1].value;
+  // console.log(boxsp[4].children[0].children[1].value)
   // console.log(boxsp[2].children[0].src)
   // console.log(boxsp[3].children[0].innerText)
   // console.log(boxsp[3].children[1].innerText)
-var sp = new Array(img,name,price)
+var sp = new Array(img,name,price,amount)
 gioHang.push(sp)
-console.log(gioHang)
+
+cuontProduct ()
+  };
+
+  //* cuontProduct
+  function cuontProduct () {
+
+    document.getElementById("cuontProduct").innerHTML = gioHang.length;
   }
+//* show my cart
+
+function showMyCart () {
+  var thongTinGioHang="";
+  var tongTien = 0;
+  for (var i=0; i<gioHang.length; i++) {
+
+    var thanhTien = gioHang[i][2] * gioHang[i][3];
+    tongTien += thanhTien
+    thongTinGioHang += `
+    <tr>
+                <td>${i+1}</td>
+                <td><img class="card__img2" src="${gioHang[i][0]}"></td>
+                <td>${gioHang[i][1]}</td>
+                <td>${gioHang[i][2]}</td>
+                <td>${gioHang[i][3]}</td>
+                <td>${thanhTien}</td>
+              </tr>
+    `}
+    thongTinGioHang += `
+    <tr>
+    <th colspan="5"> Tong don hang</th>
+    <th>
+      <div>${tongTien}</div>
+    </th>
+  </tr>
+    `
+    document.getElementById("myCart").innerHTML = thongTinGioHang;
+}
+
 
   //* ----- showcart---- 
 // mac dinh 
@@ -157,5 +196,5 @@ function showcart () {
   }else{
     show.style.display = "block"
   }
-  
+  showMyCart ()
 }

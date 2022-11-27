@@ -20,75 +20,51 @@
     <link rel="stylesheet" href="./app/assets/Css/style.css" />
   </head>
   <body>
-
     <section>
       <!--* dropdown  -->
       <div class="container">
         <div class="fill">
           <h1>Danh Sách Sản Phẩm</h1>
-          
+
           <ul class="nav nav-pills">
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Điện thoại</a>
+              <a
+                class="nav-link dropdown-toggle"
+                data-toggle="dropdown"
+                href="#"
+                >Điện thoại</a
+              >
               <div class="dropdown-menu">
-                <a id="fill-allBranch" class="dropdown-item" href="#">All Branch</a>
+                <a id="fill-allBranch" class="dropdown-item" href="#"
+                  >All Branch</a
+                >
                 <a id="fill-ip" class="dropdown-item" href="#">Apple</a>
                 <a id="fill-ss" class="dropdown-item" href="#">Samsung</a>
-                </div>
+              </div>
             </li>
             <span class="cart_total">
-              <a onclick="showcart()"> <i class="bx bx-cart"></i></a>
+              <a onclick="showcart()">
+                <i class="bx bx-cart"><span id="cuontProduct"></span></i>
+              </a>
             </span>
           </ul>
-
         </div>
         <div id="showCart" class="showCart">
           <table class="table table-striped table-dark">
             <thead>
               <tr>
-                <th >STT</th>
-                <th >Hình</th>
+                <th>STT</th>
+                <th>Hình</th>
                 <th>Tên sản phẩm</th>
                 <th>Dơn Giá</th>
                 <th>Số lượng</th>
                 <th>Thành tiền ($)</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>01</td>
-                <td>hinh</td>
-                <td>Iphone 11</td>
-                <td>11</td>
-                <td>1</td>
-                <td>1</td>
-              </tr>
-            </tbody>
+            <tbody id="myCart"></tbody>
           </table>
         </div>
-          <div class="row" id="tblDanhSachSP"> </div>
-      </div>
-    </section>
-   
-
-    <section class="tab__cart">
-        <div class="tblSanPham" id="tblSanPham">
-          <h2>TABLE CART</h2>
-          <!-- BEGIN TABLE SẢN PHẨM -->
-          <table class="table table-bordered">
-            <thead>
-              <th>STT</th>
-              <th>Tên Sản Phẩm</th>
-              <th>Giá</th>
-              <th>SL</th>
-              <th>Hình Ảnh</th>
-              <th>Mô Tả</th>
-              <th>Action</th>
-            </thead>
-            <tbody class="themCart"></tbody>
-          </table>
-          <!-- END TABLE SẢN PHẨM -->
-        </div>
+        <div class="row" id="tblDanhSachSP"></div>
       </div>
     </section>
 
@@ -106,12 +82,10 @@
     <!-- !Axios  -->
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <!-- !JS  -->
-   
+
     <script src="./app/models/Product.js"></script>
     <script src="./app/service/ProductService.js"></script>
     <!-- ?main  -->
     <script src="./app/controllers/main.js"></script>
   </body>
 </html>
-
-<img class="img" src="" alt="" />
