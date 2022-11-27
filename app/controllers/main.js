@@ -61,7 +61,7 @@ content += `  <div class="card  col-3  ">
             </div>
             <div class="card__bot">
               <div class="card__action">
-                <button>Add cart</button>
+                <button onclick='addCart (this)' >Add cart</button>
               </div>
             </div>
     </div>
@@ -87,12 +87,9 @@ function filterIP () {
       for(let i = 0; i < data.length; i ++) {
         if (data[i].type.toLowerCase() === 'iphone') {
           arrIphone.push(data[i])
-        }
-      }
-      
-      console.log(arrIphone)
+        }}
+      // console.log(arrIphone)
       hienThiTable(arrIphone)
-
   })
   .catch(function(error){
     console.log("error")
@@ -106,18 +103,59 @@ spService.layDanhSachSP()
 .then(function(results){
   const data2 = results.data;
   const arrSamSung = [];
-  for(var i=0; i < data2.length; i++){
+  for(let i=0; i < results.data.length; i++){
     if(data2[i].type==='Samsung') {
       arrSamSung.push(data2[i])
     };
-    hienThiTable(arrSamSung)
-    
+    hienThiTable(arrSamSung);
   }
-
 })
 .catch(function(error){
   console.log("error")
-})
+})}
 
-}
 document.getElementById("fill-ss").onclick= filterSSung ;
+
+function filterAll () {
+  spService.layDanhSachSP()
+  .then(function(results){ 
+    hienThiTable(results.data)
+  })
+  .catch(function(error){
+    console.log("error")
+  })
+  
+  }
+
+document.getElementById("fill-allBranch").onclick= filterAll ;
+
+
+//* add cart
+var gioHang =new Array();
+function addCart (X) {
+  var boxsp = X.parentElement.parentElement.parentElement.children;
+  var img = boxsp[2].children[0].src;
+  var name = boxsp[3].children[0].innerText;
+  var price = boxsp[3].children[1].innerText
+  // console.log(boxsp[3])
+  // console.log(boxsp[2].children[0].src)
+  // console.log(boxsp[3].children[0].innerText)
+  // console.log(boxsp[3].children[1].innerText)
+var sp = new Array(img,name,price)
+gioHang.push(sp)
+console.log(gioHang)
+  }
+
+  //* ----- showcart---- 
+// mac dinh 
+  document.getElementById("showCart").style.display='none'
+
+function showcart () {
+  var show = document.getElementById("showCart");
+  if (show.style.display == "block") {
+    show.style.display = "none"
+  }else{
+    show.style.display = "block"
+  }
+  
+}

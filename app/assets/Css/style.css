@@ -49,6 +49,29 @@ body {
     position: relative;
     overflow: hidden;
 }
+.nav{
+    position: relative;
+}
+ .cart_total{
+    color: var(--primary-color);
+    position: absolute;
+    left: 1050px;
+    top: 20px;
+    font-size: 55px ;
+    cursor: pointer;
+}
+.cart_total:hover{
+    color: #FF6699;
+    transition: 0.5s;
+}
+
+/** showCart */
+.showCart {
+    position: fixed;
+    left: 960px;
+    border-radius: 10px;
+    z-index: 10;
+}
 
 .card__heart, .card__cart {
     font-size: 25px ;
